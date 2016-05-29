@@ -1,0 +1,6 @@
+x<-strptime(nd$Date,"%d/%m/%Y")
+datetime<-paste(as.Date(x),nd$Time)
+xx<-as.POSIXct(datetime)
+plot(nd$Global_active_power~xx,type="l",ylab="Global Active Power (kilowatts)",xlab="")
+dev.copy(png,filename="plot2.png",width = 480, height = 480, units = "px")
+dev.off()
