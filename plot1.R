@@ -1,0 +1,7 @@
+data<-read.csv("household_power_consumption.txt",nrows=-1L,header=T, na.strings="?", colClasses=c("character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric"),sep=";")
+data1<- subset(data, Date=="1/2/2007")
+data2<- subset(data, Date=="2/2/2007")
+nd<-rbind(data1,data2)
+hist(nd$Global_active_power,col="red",xlab="Global Active Power (kilowatts)",main="Global Active Power",ylim=c(0,1200),las=1)
+dev.copy(png,filename="plot1.png",width = 480, height = 480, units = "px")
+dev.off()
